@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit7"
+        style="@style/MyDigitButton"
+        android:text="7"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit4"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit8"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit8"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="22dp"
+        android:text="8"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit5"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit9"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit7" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit9"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="18dp"
+        android:text="9"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit6"
+        app:layout_constraintEnd_toStartOf="@+id/btnMemoryClr"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit8" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnMemoryClr"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="17dp"
+        android:text="MC"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitMultiply"
+        app:layout_constraintEnd_toStartOf="@+id/btnDel"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit9" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDel"
+        android:fontFamily="sans-serif-light"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="23dp"
+        android:text="←"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitDivision"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMemoryClr" />
+
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit4"
+        style="@style/MyDigitButton"
+        android:text="4"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit1"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit5"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="22dp"
+        android:text="5"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit2"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit6"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit4" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit6"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="18dp"
+        android:text="6"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit3"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitMultiply"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit5" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitMultiply"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="17dp"
+        android:src="@drawable/ic_multiply"
+        android:text="×"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitPlus"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitDivision"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit6" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitDivision"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="23dp"
+        android:text="÷"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitMinus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnDigitMultiply" />
+
+
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit1"
+        style="@style/MyDigitButton"
+        android:text="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit0"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit2"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="22dp"
+        android:text="2"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigit00"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit3"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit1" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit3"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="18dp"
+        android:text="3"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitDot"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitPlus"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit2" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitPlus"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="17dp"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitParens"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitMinus"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit3" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitMinus"
+        style="@style/MyDigitButton"
+        android:layout_marginStart="23dp"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/btnDigitEquals"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnDigitPlus" />
+
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit0"
+        style="@style/MyDigitButton"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigit00"
+        app:layout_constraintStart_toStartOf="parent"  />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigit00"
+        style="@style/MyDigitButton"
+        android:text="00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitDot"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit0"  />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitDot"
+        style="@style/MyDigitButton"
+        android:text="."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitParens"
+        app:layout_constraintStart_toEndOf="@+id/btnDigit00" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitParens"
+        style="@style/MyDigitButton"
+        android:text="（）"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDigitEquals"
+        app:layout_constraintStart_toEndOf="@+id/btnDigitDot" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnDigitEquals"
+        style="@style/MyDigitButton"
+        android:text="="
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnDigitParens" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

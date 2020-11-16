@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.hyuck.hcalc"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -39,7 +39,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    implementation 'com.github.jd-alexander:android-flat-button:v1.1'
+    implementation 'com.github.Hyuck9:H-Commons:0.0.3'
+
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
