@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".activities.CalculatorActivity">
 
+    <com.hyuck.hcalc.customviews.CalculatorEditText
+        android:id="@+id/calculatorEditText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="right|center_vertical"
+        app:minTextSize="24sp"
+        app:maxTextSize="64sp"
+        app:stepTextSize="8sp"
+        android:textSize="64sp"
+        android:paddingTop="4dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:text="123456"
+        app:layout_constraintBottom_toTopOf="@+id/tvResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="123,456,789"
+        android:gravity="center|end"
+        android:textSize="32sp"
+        android:textColor="@color/md_blue_grey_600"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/include2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/layout_memory_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_margin"
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/layout_digit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

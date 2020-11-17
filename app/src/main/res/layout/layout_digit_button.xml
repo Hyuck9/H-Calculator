@@ -87,7 +87,6 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitMultiply"
         style="@style/MyDigitButton"
-        android:src="@drawable/ic_multiply"
         android:text="@string/digit_multiply"
         android:textColor="@color/md_green"
         android:textStyle="bold"
@@ -102,7 +101,6 @@
         android:text="@string/digit_division"
         android:textColor="@color/md_green"
         android:textStyle="bold"
-
         app:layout_constraintBottom_toTopOf="@+id/btnDigitMinus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnDigitMultiply"
@@ -192,6 +190,7 @@
         android:text="@string/digit_parens"
         android:textColor="@color/md_green"
         android:textStyle="bold"
+        android:fontFamily="@font/nbgb"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDigitEquals"
         app:layout_constraintStart_toEndOf="@+id/btnDigitDot"
@@ -202,6 +201,7 @@
         style="@style/MyDigitButton"
         android:text="@string/digit_equal"
         android:textColor="@color/md_grey_white"
+        android:textStyle="bold"
         app:fButtonColor="@color/md_green"
         app:shadowColor="@color/md_green_800_dark"
         app:layout_constraintBottom_toBottomOf="parent"

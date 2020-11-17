@@ -36,6 +36,7 @@
                     android:lines="1"
                     android:textColor="@color/md_brown_400"
                     android:layout_marginEnd="@dimen/medium_margin"
+                    android:textSize="16sp"
                     android:text="123" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -65,6 +66,7 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:textColor="@color/md_deep_orange_400"
                     android:lines="1"
+                    android:textSize="16sp"
                     android:text="456" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -101,6 +103,7 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:lines="1"
                     android:textColor="@color/md_cyan_400"
+                    android:textSize="16sp"
                     android:text="123" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -117,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -129,6 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:lines="1"
+                    android:textSize="16sp"
                     android:textColor="@color/md_green_400"
                     android:text="456" />
             </LinearLayout>
