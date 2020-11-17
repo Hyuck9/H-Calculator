@@ -27,10 +27,14 @@
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/md_brown_400"
+                    android:textStyle="bold"
                     android:text="M1"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:textColor="@color/md_brown_400"
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:text="123" />
             </LinearLayout>
@@ -52,11 +56,15 @@
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/md_deep_orange_400"
+                    android:textStyle="bold"
                     android:text="M2"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"
+                    android:textColor="@color/md_deep_orange_400"
+                    android:lines="1"
                     android:text="456" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -84,11 +92,15 @@
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/md_cyan_400"
+                    android:textStyle="bold"
                     android:text="M3"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"
+                    android:lines="1"
+                    android:textColor="@color/md_cyan_400"
                     android:text="123" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -109,11 +121,15 @@
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/md_green_400"
+                    android:textStyle="bold"
                     android:text="M4"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"
+                    android:lines="1"
+                    android:textColor="@color/md_green_400"
                     android:text="456" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
