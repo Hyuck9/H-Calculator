@@ -14,7 +14,7 @@
     <string name="digit_9">9</string>
 
     <string name="op_add">+</string>
-    <string name="op_sub">-</string>
+    <string name="op_sub">−</string>
     <string name="op_div">÷</string>
     <string name="op_mul">×</string>
     <string name="op_perc">%</string>
@@ -27,6 +27,8 @@
     <string name="decimal_point">.</string>
     <string name="delete">←</string>
     <string name="equal">=</string>
-    <string name="inf">∞</string>
+    <string name="infinity">∞</string>
     <string name="memory_clear">MC</string>
+    <string name="error_nan">NaN</string>
+    <string name="error_syntax">Error</string>
 </resources>
