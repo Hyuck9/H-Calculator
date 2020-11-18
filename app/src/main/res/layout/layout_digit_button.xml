@@ -47,7 +47,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDel"
         style="@style/MyDigitButton"
-        android:text="@string/digit_delete"
+        android:text="@string/delete"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         android:fontFamily="@font/nbgb"
@@ -87,7 +87,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitMultiply"
         style="@style/MyDigitButton"
-        android:text="@string/digit_multiply"
+        android:text="@string/op_mul"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/btnMemoryClr"
@@ -98,7 +98,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitDivision"
         style="@style/MyDigitButton"
-        android:text="@string/digit_division"
+        android:text="@string/op_div"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnDigitMinus"
@@ -137,7 +137,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitPlus"
         style="@style/MyDigitButton"
-        android:text="@string/digit_plus"
+        android:text="@string/op_add"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnDigitParens"
@@ -148,7 +148,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitMinus"
         style="@style/MyDigitButton"
-        android:text="@string/digit_minus"
+        android:text="@string/op_sub"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnDigitEquals"
@@ -178,7 +178,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitDot"
         style="@style/MyDigitButton"
-        android:text="@string/digit_dot"
+        android:text="@string/decimal_point"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDigitParens"
         app:layout_constraintStart_toEndOf="@+id/btnDigit00"
@@ -187,7 +187,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitParens"
         style="@style/MyDigitButton"
-        android:text="@string/digit_parens"
+        android:text="@string/parens"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         android:fontFamily="@font/nbgb"
@@ -199,7 +199,7 @@
     <info.hoang8f.widget.FButton
         android:id="@+id/btnDigitEquals"
         style="@style/MyDigitButton"
-        android:text="@string/digit_equal"
+        android:text="@string/equal"
         android:textColor="@color/md_grey_white"
         android:textStyle="bold"
         app:fButtonColor="@color/md_green"
