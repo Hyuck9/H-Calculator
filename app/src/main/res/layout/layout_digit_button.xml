@@ -40,7 +40,7 @@
         android:textColor="@color/md_orange"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitMultiply"
+        app:layout_constraintBottom_toTopOf="@+id/btnOperatorMultiply"
         app:layout_constraintEnd_toStartOf="@+id/btnDel"
         app:layout_constraintStart_toEndOf="@+id/btnDigit9" />
 
@@ -52,7 +52,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/nbgb"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitDivision"
+        app:layout_constraintBottom_toTopOf="@+id/btnOperatorDivision"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnMemoryClr" />
 
@@ -81,29 +81,29 @@
         android:text="@string/digit_6"
         app:layout_constraintTop_toBottomOf="@id/btnDigit9"
         app:layout_constraintBottom_toTopOf="@+id/btnDigit3"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitMultiply"
+        app:layout_constraintEnd_toStartOf="@+id/btnOperatorMultiply"
         app:layout_constraintStart_toEndOf="@+id/btnDigit5" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitMultiply"
+        android:id="@+id/btnOperatorMultiply"
         style="@style/MyDigitButton"
         android:text="@string/op_mul"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/btnMemoryClr"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitPlus"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitDivision"
+        app:layout_constraintBottom_toTopOf="@+id/btnOperatorPlus"
+        app:layout_constraintEnd_toStartOf="@+id/btnOperatorDivision"
         app:layout_constraintStart_toEndOf="@+id/btnDigit6" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitDivision"
+        android:id="@+id/btnOperatorDivision"
         style="@style/MyDigitButton"
         android:text="@string/op_div"
         android:textColor="@color/md_green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitMinus"
+        app:layout_constraintBottom_toTopOf="@+id/btnOperatorMinus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDigitMultiply"
+        app:layout_constraintStart_toEndOf="@+id/btnOperatorMultiply"
         app:layout_constraintTop_toBottomOf="@+id/btnDel" />
 
 
@@ -129,32 +129,32 @@
         android:id="@+id/btnDigit3"
         style="@style/MyDigitButton"
         android:text="@string/digit_3"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitDot"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitPlus"
+        app:layout_constraintBottom_toTopOf="@+id/btnDecimalPoint"
+        app:layout_constraintEnd_toStartOf="@+id/btnOperatorPlus"
         app:layout_constraintStart_toEndOf="@+id/btnDigit2"
         app:layout_constraintTop_toBottomOf="@+id/btnDigit6" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitPlus"
+        android:id="@+id/btnOperatorPlus"
         style="@style/MyDigitButton"
         android:text="@string/op_add"
         android:textColor="@color/md_green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitParens"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitMinus"
+        app:layout_constraintBottom_toTopOf="@+id/btnParens"
+        app:layout_constraintEnd_toStartOf="@+id/btnOperatorMinus"
         app:layout_constraintStart_toEndOf="@+id/btnDigit3"
-        app:layout_constraintTop_toBottomOf="@+id/btnDigitMultiply" />
+        app:layout_constraintTop_toBottomOf="@+id/btnOperatorMultiply" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitMinus"
+        android:id="@+id/btnOperatorMinus"
         style="@style/MyDigitButton"
         android:text="@string/op_sub"
         android:textColor="@color/md_green"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnDigitEquals"
+        app:layout_constraintBottom_toTopOf="@+id/btnEqual"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDigitPlus"
-        app:layout_constraintTop_toBottomOf="@+id/btnDigitDivision" />
+        app:layout_constraintStart_toEndOf="@+id/btnOperatorPlus"
+        app:layout_constraintTop_toBottomOf="@+id/btnOperatorDivision" />
 
 
     <info.hoang8f.widget.FButton
@@ -171,33 +171,33 @@
         style="@style/MyDigitButton"
         android:text="@string/digit_00"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitDot"
+        app:layout_constraintEnd_toStartOf="@+id/btnDecimalPoint"
         app:layout_constraintStart_toEndOf="@+id/btnDigit0"
         app:layout_constraintTop_toBottomOf="@+id/btnDigit2" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitDot"
+        android:id="@+id/btnDecimalPoint"
         style="@style/MyDigitButton"
         android:text="@string/decimal_point"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitParens"
+        app:layout_constraintEnd_toStartOf="@+id/btnParens"
         app:layout_constraintStart_toEndOf="@+id/btnDigit00"
         app:layout_constraintTop_toBottomOf="@+id/btnDigit3" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitParens"
+        android:id="@+id/btnParens"
         style="@style/MyDigitButton"
         android:text="@string/parens"
         android:textColor="@color/md_green"
         android:textStyle="bold"
         android:fontFamily="@font/nbgb"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnDigitEquals"
-        app:layout_constraintStart_toEndOf="@+id/btnDigitDot"
-        app:layout_constraintTop_toBottomOf="@+id/btnDigitPlus" />
+        app:layout_constraintEnd_toStartOf="@+id/btnEqual"
+        app:layout_constraintStart_toEndOf="@+id/btnDecimalPoint"
+        app:layout_constraintTop_toBottomOf="@+id/btnOperatorPlus" />
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/btnDigitEquals"
+        android:id="@+id/btnEqual"
         style="@style/MyDigitButton"
         android:text="@string/equal"
         android:textColor="@color/md_grey_white"
@@ -206,7 +206,7 @@
         app:shadowColor="@color/md_green_800_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDigitParens"
-        app:layout_constraintTop_toBottomOf="@+id/btnDigitMinus" />
+        app:layout_constraintStart_toEndOf="@+id/btnParens"
+        app:layout_constraintTop_toBottomOf="@+id/btnOperatorMinus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

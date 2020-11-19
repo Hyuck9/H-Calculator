@@ -12,6 +12,7 @@
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewMemory1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,14 +24,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMemory1"
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_brown_400"
                     android:textStyle="bold"
                     android:text="M1"/>
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lines="1"
@@ -42,6 +44,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewMemory2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,14 +56,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMemory2"
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_deep_orange_400"
                     android:textStyle="bold"
                     android:text="M2"/>
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"
@@ -79,36 +83,7 @@
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:focusable="true">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <Button
-                    style="@style/MyDigitButton"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/md_cyan_400"
-                    android:textStyle="bold"
-                    android:text="M3"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/medium_margin"
-                    android:lines="1"
-                    android:textColor="@color/md_cyan_400"
-                    android:textSize="16sp"
-                    android:text="123" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewMemory3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -121,13 +96,46 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMemory3"
+                    style="@style/MyDigitButton"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/md_cyan_400"
+                    android:textStyle="bold"
+                    android:text="M3"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:lines="1"
+                    android:textColor="@color/md_cyan_400"
+                    android:textSize="16sp"
+                    android:text="123" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewMemory4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="1dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMemory4"
                     style="@style/MyDigitButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_green_400"
                     android:textStyle="bold"
                     android:text="M4"/>
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/medium_margin"

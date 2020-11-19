@@ -27,3 +27,7 @@ const val SIX = "six"
 const val SEVEN = "seven"
 const val EIGHT = "eight"
 const val NINE = "nine"
+
+enum class State {
+    INPUT, EVALUATE, RESULT, ERROR
+}

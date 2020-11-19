@@ -7,7 +7,7 @@
     tools:context=".activities.CalculatorActivity">
 
     <com.hyuck.hcalc.customviews.CalculatorEditText
-        android:id="@+id/calculatorEditText"
+        android:id="@+id/displayFormula"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -20,14 +20,14 @@
         android:paddingStart="6dp"
         android:paddingEnd="6dp"
         android:text="123456"
-        app:layout_constraintBottom_toTopOf="@+id/tvResult"
+        app:layout_constraintBottom_toTopOf="@+id/displayResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
 
-    <TextView
-        android:id="@+id/tvResult"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/displayResult"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="123,456,789"

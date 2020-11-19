@@ -23,6 +23,10 @@ class CalculatorEditText : AppCompatEditText {
 
     private var onTextSizeChangeListener: OnTextSizeChangeListener? = null
 
+    fun setOnTextSizeChangeListener(listener: OnTextSizeChangeListener) {
+        onTextSizeChangeListener = listener
+    }
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 

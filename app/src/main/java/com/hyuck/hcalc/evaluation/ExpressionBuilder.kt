@@ -3,6 +3,7 @@ package com.hyuck.hcalc.evaluation
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
 
+//TODO: 추후 isEdited 및 State enum class에 대해 살펴보기
 class ExpressionBuilder(text: CharSequence, private val tokenizer: ExpressionTokenizer, private var isEdited: Boolean): SpannableStringBuilder(text) {
 
     override fun replace(start: Int, end: Int, tb: CharSequence?, tbstart: Int, tbend: Int): SpannableStringBuilder {
