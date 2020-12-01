@@ -6,15 +6,27 @@
     <style name="MyDigitButton" parent="Widget.AppCompat.Button">
         <item name="android:textSize">@dimen/button_text_size</item>
         <item name="android:textColor">@color/dark_grey</item>
-        <item name="android:layout_width">65dp</item>
-        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_width">76dp</item>
+        <item name="android:layout_height">76dp</item>
         <item name="fButtonColor">@color/md_grey_200</item>
         <item name="shadowColor">@color/md_grey_400</item>
         <item name="cornerRadius">24dp</item>
         <item name="shadowEnabled">true</item>
         <item name="shadowHeight">4dp</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_margin">2dp</item>
         <item name="android:onClick">onButtonClick</item>
+    </style>
+
+    <style name="MyMemoryButton" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="fButtonColor">@color/md_grey_600_dark</item>
+        <item name="shadowColor">@color/md_grey_700_dark</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="shadowEnabled">true</item>
+        <item name="shadowHeight">4dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:onClick">onMemoryButtonClick</item>
     </style>
 
 </resources>

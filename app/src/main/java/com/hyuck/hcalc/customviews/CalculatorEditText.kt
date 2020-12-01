@@ -27,9 +27,8 @@ class CalculatorEditText : AppCompatEditText {
         onTextSizeChangeListener = listener
     }
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CalculatorEditText, defStyleAttr, 0)
         maximumTextSize = typedArray.getDimension(R.styleable.CalculatorEditText_maxTextSize, textSize)

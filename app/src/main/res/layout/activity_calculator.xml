@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:gravity="right|center_vertical"
+        android:cursorVisible="false"
+        android:includeFontPadding="false"
+        android:gravity="end|center_vertical"
         app:minTextSize="24sp"
         app:maxTextSize="64sp"
         app:stepTextSize="8sp"
@@ -46,7 +48,7 @@
         layout="@layout/layout_memory_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/small_margin"
         app:layout_constraintBottom_toTopOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -56,6 +58,7 @@
         layout="@layout/layout_digit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

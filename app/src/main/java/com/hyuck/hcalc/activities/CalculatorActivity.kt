@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -28,6 +29,7 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("CalculatorActivity", "onCreate")
         setContentView(R.layout.activity_calculator)
         tokenizer = ExpressionTokenizer(this)
         evaluator = ExpressionEvaluator(tokenizer)
@@ -81,6 +83,7 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         }
     }
     private fun animatorSetStart(textView: TextView, textScale: Float, translationX: Float, translationY: Float) {
+        Log.d("CalculatorActivity", "animatorSetStart")
         AnimatorSet().apply {
             playTogether(
                 ObjectAnimator.ofFloat(textView, "scaleX", textScale, 1f),
@@ -120,7 +123,6 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
             return
         }
         displayFormula.editableText.clear()
-        TODO("추후 결과도 클리어?")
     }
 
     private fun onError(errorResourceId: Int) {

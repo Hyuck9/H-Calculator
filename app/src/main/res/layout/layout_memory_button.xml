@@ -14,7 +14,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMemory1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
             android:clickable="true"
@@ -24,9 +24,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatButton
+                <info.hoang8f.widget.FButton
                     android:id="@+id/btnMemory1"
-                    style="@style/MyDigitButton"
+                    style="@style/MyMemoryButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_brown_400"
@@ -46,7 +46,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMemory2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
             android:clickable="true"
@@ -56,9 +56,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatButton
+                <info.hoang8f.widget.FButton
                     android:id="@+id/btnMemory2"
-                    style="@style/MyDigitButton"
+                    style="@style/MyMemoryButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_deep_orange_400"
@@ -85,7 +85,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMemory3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
             android:clickable="true"
@@ -95,9 +95,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatButton
+                <info.hoang8f.widget.FButton
                     android:id="@+id/btnMemory3"
-                    style="@style/MyDigitButton"
+                    style="@style/MyMemoryButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_cyan_400"
@@ -117,7 +117,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMemory4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
             android:clickable="true"
@@ -127,9 +127,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatButton
+                <info.hoang8f.widget.FButton
                     android:id="@+id/btnMemory4"
-                    style="@style/MyDigitButton"
+                    style="@style/MyMemoryButton"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/md_green_400"
