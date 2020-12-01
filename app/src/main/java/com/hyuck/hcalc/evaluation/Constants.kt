@@ -1,5 +1,7 @@
 package com.hyuck.hcalc.evaluation
 
+import android.os.Looper
+
 const val INVALID_RES_ID = -1
 
 
@@ -31,3 +33,5 @@ const val NINE = "nine"
 enum class State {
     INPUT, EVALUATE, RESULT, ERROR
 }
+
+fun isOnMainThread() = Looper.myLooper() == Looper.getMainLooper()

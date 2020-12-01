@@ -35,13 +35,14 @@ class CalculatorEditText : AppCompatEditText {
         minimumTextSize = typedArray.getDimension(R.styleable.CalculatorEditText_minTextSize, textSize)
         stepTextSize = typedArray.getDimension(R.styleable.CalculatorEditText_stepTextSize, (maximumTextSize - minimumTextSize) / 3)
         typedArray.recycle()
+        initTextSize()
+    }
 
+    private fun initTextSize() {
         if ( isFocusable ) {
             movementMethod = ScrollingMovementMethod.getInstance()
         }
-
         setTextSize(TypedValue.COMPLEX_UNIT_PX, maximumTextSize)
-
         minHeight = lineHeight + compoundPaddingTop + compoundPaddingBottom
     }
 

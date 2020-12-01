@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hyuck.hcalc.R
 import com.hyuck.hcalc.customviews.OnTextSizeChangeListener
 import com.hyuck.hcalc.evaluation.*
+import com.hyuck.hcalc.extensions.toast
 import kotlinx.android.synthetic.main.activity_calculator.*
 import kotlinx.android.synthetic.main.layout_digit_button.*
 
@@ -100,7 +101,7 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         if (currentState != state) {
             currentState = state
             if (state == State.ERROR) {
-                TODO("추후 상태값에 따른 로직 반영")
+                // TODO: 추후 상태값에 따른 로직 반영
             }
         }
     }
@@ -159,11 +160,23 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
             R.id.btnDel -> onDelete()
             R.id.btnMemoryClr -> {}
             R.id.btnParens -> {}
-            R.id.btnOperatorPlus, R.id.btnOperatorMinus, R.id.btnOperatorMultiply, R.id.btnOperatorDivision -> {}
+            R.id.btnOperatorPlus, R.id.btnOperatorMinus, R.id.btnOperatorMultiply, R.id.btnOperatorDivision -> {operatorButtonClick(v)}
             R.id.btnDigit00 -> {}
             else -> {
-                displayFormula.append((v as Button).text)
+                numberButtonClick(v)
             }
+        }
+    }
+
+    private fun operatorButtonClick(v: View) {
+        displayFormula.append((v as Button).text)
+    }
+
+    private fun numberButtonClick(v: View) {
+        if (displayFormula.text!!.length >= 500) {
+            toast("글자를 최대 500자 까지 입력할 수 있습니다.")
+        } else {
+            displayFormula.append((v as Button).text)
         }
     }
 

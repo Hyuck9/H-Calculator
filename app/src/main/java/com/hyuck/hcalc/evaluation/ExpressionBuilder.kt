@@ -7,12 +7,12 @@ import android.text.TextUtils
 class ExpressionBuilder(text: CharSequence, private val tokenizer: ExpressionTokenizer, private var isEdited: Boolean): SpannableStringBuilder(text) {
 
     override fun replace(start: Int, end: Int, tb: CharSequence?, tbstart: Int, tbend: Int): SpannableStringBuilder {
-        if (start != length || end != length) {
+        var startIndex = start
+        if (startIndex != length || end != length) {
             isEdited = true
-            return super.replace(start, end, tb, tbstart, tbend)
+            return super.replace(startIndex, end, tb, tbstart, tbend)
         }
 
-        var startIndex = start
         var appendExpr = tokenizer.getNormalizedExpression(tb?.subSequence(tbstart, tbend).toString())
 
         if (appendExpr.length == 1) {

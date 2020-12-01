@@ -3,12 +3,14 @@ package com.hyuck.hcalc.utils
 import java.text.DecimalFormat
 
 object NumberFormatter {
-    fun doubleToString(d: Double) = DecimalFormat().apply {
+    fun doubleToString(d: Double): String = DecimalFormat().apply {
         maximumFractionDigits = 15
         isGroupingUsed = true
     }.format(d)
 
     fun stringToDouble(str: String) = str.replace(",", "").toDouble()
+
+    fun removeCommaInString(str: String) = str.replace(",", "")
 
     fun addGroupingSeparators(str: String) = doubleToString(stringToDouble(str))
 
