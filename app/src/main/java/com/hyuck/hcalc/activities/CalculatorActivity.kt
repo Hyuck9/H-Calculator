@@ -1,7 +1,6 @@
 package com.hyuck.hcalc.activities
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
+import android.animation.*
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -26,6 +25,8 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
     lateinit var evaluator: ExpressionEvaluator
 
     var currentState: State? = null
+
+    private var currentAnimator: Animator? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,17 +81,22 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
             val textScale = oldSize / textView.textSize
             val translationX = (1 - textScale) * (textView.width / 2 - textView.paddingEnd)
             val translationY = (1 - textScale) * (textView.height / 2 - textView.paddingBottom)
-            animatorSetStart(textView,textScale, translationX, translationY)
+            animatorSetStart(textView, textScale, translationX, translationY)
         }
     }
-    private fun animatorSetStart(textView: TextView, textScale: Float, translationX: Float, translationY: Float) {
+    private fun animatorSetStart(
+        textView: TextView,
+        textScale: Float,
+        translationX: Float,
+        translationY: Float
+    ) {
         Log.d("CalculatorActivity", "animatorSetStart")
         AnimatorSet().apply {
             playTogether(
-                ObjectAnimator.ofFloat(textView, "scaleX", textScale, 1f),
-                ObjectAnimator.ofFloat(textView, "scaleY", textScale, 1f),
-                ObjectAnimator.ofFloat(textView, "translationX", translationX, 1f),
-                ObjectAnimator.ofFloat(textView, "translationY", translationY, 1f)
+                ObjectAnimator.ofFloat(textView, "scaleX", textScale, 1.0f),
+                ObjectAnimator.ofFloat(textView, "scaleY", textScale, 1.0f),
+                ObjectAnimator.ofFloat(textView, "translationX", translationX, 1.0f),
+                ObjectAnimator.ofFloat(textView, "translationY", translationY, 1.0f)
             )
             duration = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
             interpolator = AccelerateDecelerateInterpolator()
@@ -116,7 +122,7 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
     private fun onDelete() {
         val formulaText = displayFormula.editableText
         val formulaLength = formulaText.length
-        if (formulaLength > 0) formulaText.delete(formulaLength-1, formulaLength)
+        if (formulaLength > 0) formulaText.delete(formulaLength - 1, formulaLength)
     }
 
     private fun onClear() {
@@ -143,8 +149,8 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
             errorResourceId != INVALID_RES_ID -> {
                 onError(errorResourceId)
             }
-            TextUtils.isEmpty(result) -> {
-//                onResult(result)
+            !TextUtils.isEmpty(result) -> {
+                onResult(result!!)
             }
             currentState == State.EVALUATE -> {
                 setState(State.INPUT)
@@ -158,10 +164,17 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         when(v.id) {
             R.id.btnEqual -> onEquals()
             R.id.btnDel -> onDelete()
-            R.id.btnMemoryClr -> {}
-            R.id.btnParens -> {}
-            R.id.btnOperatorPlus, R.id.btnOperatorMinus, R.id.btnOperatorMultiply, R.id.btnOperatorDivision -> {operatorButtonClick(v)}
-            R.id.btnDigit00 -> {}
+            R.id.btnMemoryClr -> {
+            }
+            R.id.btnParens -> {
+            }
+            R.id.btnOperatorPlus, R.id.btnOperatorMinus, R.id.btnOperatorMultiply, R.id.btnOperatorDivision -> {
+                operatorButtonClick(
+                    v
+                )
+            }
+            R.id.btnDigit00 -> {
+            }
             else -> {
                 numberButtonClick(v)
             }
@@ -180,5 +193,62 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         }
     }
 
-//    abstract fun onResult(result: String?)
+    private fun onResult(result: String) {
+        val resultScale = displayFormula.getVariableTextSize(result) / displayResult.textSize
+        val resultTranslationX = (1.0f - resultScale) * (displayResult.width / 2.0f - displayResult.paddingEnd)
+        Log.d("CalculatorActivity", "1.0f - resultScale : ${1.0f - resultScale}")
+        Log.d("CalculatorActivity", "displayResult.width : ${displayResult.width}")
+        Log.d("CalculatorActivity", "displayResult.paddingEnd : ${displayResult.paddingEnd}")
+        Log.d("CalculatorActivity", "resultTranslationX : $resultTranslationX")
+        val resultTranslationY = (1.0f - resultScale) * (displayResult.height / 2.0f - displayResult.paddingBottom) +
+                (displayFormula.bottom - displayResult.bottom) +
+                (displayResult.paddingBottom - displayFormula.paddingBottom - displayFormula.paddingTop)
+        val formulaTranslationY = (-displayFormula.bottom).toFloat()
+
+        val resultTextColor = displayResult.currentTextColor
+        val formulaTextColor = displayFormula.currentTextColor
+
+        val textColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), resultTextColor, formulaTextColor).apply{
+            addUpdateListener{
+                displayResult.setTextColor(it.animatedValue as Int)
+            }
+        }
+
+        val animatorSet = AnimatorSet().apply {
+            playTogether(
+                textColorAnimator,
+                ObjectAnimator.ofFloat(displayResult, "scaleX", resultScale),
+                ObjectAnimator.ofFloat(displayResult, "scaleY", resultScale),
+                ObjectAnimator.ofFloat(displayResult, "translationX", resultTranslationX),
+                ObjectAnimator.ofFloat(displayResult, "translationY", resultTranslationY),
+                ObjectAnimator.ofFloat(displayFormula, "translationY", formulaTranslationY)
+            )
+            duration = resources.getInteger(android.R.integer.config_longAnimTime).toLong()
+            interpolator = AccelerateDecelerateInterpolator()
+            addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationStart(animation: Animator) {
+                    displayResult.text = result
+                }
+
+                override fun onAnimationEnd(animation: Animator) {
+                    // Reset all of the values modified during the animation.
+                    displayResult.setTextColor(resultTextColor)
+                    displayResult.scaleX = 1.0f
+                    displayResult.scaleY = 1.0f
+                    displayResult.translationX = 0.0f
+                    displayResult.translationY = 0.0f
+                    displayFormula.translationY = 0.0f
+
+                    // Finally update the formula to use the current result.
+                    displayFormula.setText(result)
+                    setState(State.RESULT)
+                    currentAnimator = null
+                }
+            })
+        }
+
+        currentAnimator = animatorSet
+        animatorSet.start()
+
+    }
 }

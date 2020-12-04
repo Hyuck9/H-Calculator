@@ -6,53 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".activities.CalculatorActivity">
 
-    <com.hyuck.hcalc.customviews.CalculatorEditText
-        android:id="@+id/displayFormula"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:cursorVisible="false"
-        android:includeFontPadding="false"
-        android:gravity="end|center_vertical"
-        app:minTextSize="24sp"
-        app:maxTextSize="64sp"
-        app:stepTextSize="8sp"
-        android:textSize="64sp"
-        android:paddingTop="4dp"
-        android:paddingStart="6dp"
-        android:paddingEnd="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/displayResult"
+        app:layout_constraintBottom_toTopOf="@+id/layoutMemoryButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlHardcoded" />
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/displayResult"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center|end"
-        android:textSize="32sp"
-        android:textColor="@color/md_blue_grey_600"
-        android:paddingEnd="16dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/include2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="RtlSymmetry" />
+        <com.hyuck.hcalc.customviews.CalculatorEditText
+            android:id="@+id/displayFormula"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            style="@style/DisplayEditTextStyle.Formula"
+             />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/displayResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/DisplayEditTextStyle.Result" />
+
+    </LinearLayout>
 
     <include
-        android:id="@+id/include2"
+        android:id="@+id/layoutMemoryButton"
         layout="@layout/layout_memory_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_margin"
-        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintBottom_toTopOf="@+id/layoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/layoutButton"
         layout="@layout/layout_digit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

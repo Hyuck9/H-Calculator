@@ -54,7 +54,7 @@ class CalculatorEditText : AppCompatEditText {
         return super.onTouchEvent(event)
     }
 
-    private fun getVariableTextSize(text: String): Float {
+    fun getVariableTextSize(text: String): Float {
         if (widthConstraint < 0 || maximumTextSize <= minimumTextSize) {
             return textSize
         }
