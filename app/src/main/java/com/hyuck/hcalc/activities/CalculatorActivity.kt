@@ -16,6 +16,11 @@ import com.hyuck.hcalc.R
 import com.hyuck.hcalc.customviews.OnTextSizeChangeListener
 import com.hyuck.hcalc.evaluation.*
 import com.hyuck.hcalc.extensions.toast
+import com.hyuck.hcalc.utils.ExpressionUtils.getLeftParenCount
+import com.hyuck.hcalc.utils.ExpressionUtils.getRightParenCount
+import com.hyuck.hcalc.utils.ExpressionUtils.isNotOperatorChar
+import com.hyuck.hcalc.utils.ExpressionUtils.isOperandLengthCheck
+import com.hyuck.hcalc.utils.ExpressionUtils.isOperatorChar
 import kotlinx.android.synthetic.main.activity_calculator.*
 import kotlinx.android.synthetic.main.layout_digit_button.*
 
@@ -28,6 +33,10 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
 
     private var currentAnimator: Animator? = null
 
+    private var countLeftParen = 0
+    private var countRightParen = 0
+    private var lastInputCheck = 's'
+    private var beforeInputCheck = 's'
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -164,42 +173,85 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         when(v.id) {
             R.id.btnEqual -> onEquals()
             R.id.btnDel -> onDelete()
-            R.id.btnMemoryClr -> {
-            }
-            R.id.btnParens -> {
-            }
-            R.id.btnOperatorPlus, R.id.btnOperatorMinus, R.id.btnOperatorMultiply, R.id.btnOperatorDivision -> {
-                operatorButtonClick(
-                    v
-                )
-            }
-            R.id.btnDigit00 -> {
-            }
-            else -> {
-                numberButtonClick(v)
+            R.id.btnMemoryClr -> {}
+            R.id.btnParens -> parensButtonClick()
+            R.id.btnOperatorPlus,
+            R.id.btnOperatorMinus,
+            R.id.btnOperatorMultiply,
+            R.id.btnOperatorDivision -> operatorButtonClick(v)
+            R.id.btnDigit00 -> doubleOButtonClick(v)
+            else -> numberButtonClick(v)
+        }
+
+        setInputChar()
+    }
+
+    private fun setInputChar() {
+        beforeInputCheck = if (displayFormula.text!!.length <= 1) 's' else displayFormula.text.toString()[displayFormula.text!!.length - 2]
+        lastInputCheck = if (displayFormula.text.toString() == "") 's' else displayFormula.text.toString()[displayFormula.text!!.length - 1]
+        countLeftParen = getLeftParenCount(displayFormula.text.toString())
+        countRightParen = getRightParenCount(displayFormula.text.toString())
+    }
+
+    private fun parensButtonClick() {
+        if (displayFormula.text!!.length >= 499) {
+            toast("글자를 최대 500자 까지 입력할 수 있습니다.")
+        } else {
+            if (isLeftParenCheck() && lastInputCheck != '(' && isNotOperatorChar(lastInputCheck) && lastInputCheck != 's') {
+                displayFormula.append( getString(R.string.rparens) )
+            } else if (lastInputCheck != '(' && isNotOperatorChar(lastInputCheck) && lastInputCheck != 's' && ExpressionBuilder.isEdited) {
+                displayFormula.append("${getString(R.string.op_mul)}${getString(R.string.lparens)}")
+            } else {
+                displayFormula.append( getString(R.string.lparens) )
             }
         }
     }
+    private fun isLeftParenCheck(): Boolean = countLeftParen - countRightParen > 0
 
     private fun operatorButtonClick(v: View) {
-        displayFormula.append((v as Button).text)
-    }
-
-    private fun numberButtonClick(v: View) {
-        if (displayFormula.text!!.length >= 500) {
+        //TODO: Error Check -> onClear()
+        if (displayFormula.text!!.length >= 499) {
             toast("글자를 최대 500자 까지 입력할 수 있습니다.")
         } else {
             displayFormula.append((v as Button).text)
         }
     }
 
+    private fun doubleOButtonClick(v: View) {
+        if (displayFormula.text!!.length >= 499) {
+            toast("글자를 최대 500자 까지 입력할 수 있습니다.")
+        } else {
+            if (isOperandLengthCheck(displayFormula.text.toString()) || currentState == State.RESULT) {
+                if ( lastInputCheck != 's' && isNotOperatorChar(lastInputCheck) && ExpressionBuilder.isEdited ) {
+                    if ( !((displayFormula.text.toString().length == 1 || isOperatorChar(beforeInputCheck)) && lastInputCheck == '0') ) {
+                        displayFormula.append((v as Button).text)
+                    }
+                }
+            } else {
+                toast("최대자리수(15개)를 초과했습니다.")
+            }
+        }
+    }
+
+    private fun numberButtonClick(v: View) {
+        if (displayFormula.text!!.length >= 500) {
+            toast("글자를 최대 500자 까지 입력할 수 있습니다.")
+        } else {
+            if (isOperandLengthCheck(displayFormula.text.toString()) || currentState == State.RESULT) {
+                if (lastInputCheck == ')' && currentState != State.RESULT) {
+                    displayFormula.append("${getString(R.string.op_mul)}${(v as Button).text}")
+                } else {
+                    displayFormula.append((v as Button).text)
+                }
+            } else {
+                toast("최대자리수(15개)를 초과했습니다.")
+            }
+        }
+    }
+
     private fun onResult(result: String) {
         val resultScale = displayFormula.getVariableTextSize(result) / displayResult.textSize
         val resultTranslationX = (1.0f - resultScale) * (displayResult.width / 2.0f - displayResult.paddingEnd)
-        Log.d("CalculatorActivity", "1.0f - resultScale : ${1.0f - resultScale}")
-        Log.d("CalculatorActivity", "displayResult.width : ${displayResult.width}")
-        Log.d("CalculatorActivity", "displayResult.paddingEnd : ${displayResult.paddingEnd}")
-        Log.d("CalculatorActivity", "resultTranslationX : $resultTranslationX")
         val resultTranslationY = (1.0f - resultScale) * (displayResult.height / 2.0f - displayResult.paddingBottom) +
                 (displayFormula.bottom - displayResult.bottom) +
                 (displayResult.paddingBottom - displayFormula.paddingBottom - displayFormula.paddingTop)
@@ -208,7 +260,11 @@ class CalculatorActivity : AppCompatActivity(), ExpressionEvaluator.EvaluateCall
         val resultTextColor = displayResult.currentTextColor
         val formulaTextColor = displayFormula.currentTextColor
 
-        val textColorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), resultTextColor, formulaTextColor).apply{
+        val textColorAnimator = ValueAnimator.ofObject(
+            ArgbEvaluator(),
+            resultTextColor,
+            formulaTextColor
+        ).apply{
             addUpdateListener{
                 displayResult.setTextColor(it.animatedValue as Int)
             }

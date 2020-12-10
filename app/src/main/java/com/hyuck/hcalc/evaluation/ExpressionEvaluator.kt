@@ -44,7 +44,7 @@ class ExpressionEvaluator(var tokenizer: ExpressionTokenizer?) {
 
     private fun evaluateResult(expr: String, callback: EvaluateCallback) {
         try {
-            val result = symbols.eval(expr)
+            val result = symbols.eval(NumberFormatter.removeCommaInString(expr))
             if (result.isNaN()) {
                 callback.onEvaluate(expr, null, R.string.error_nan)
             } else {
